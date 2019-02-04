@@ -39,14 +39,14 @@ object functions extends App {
   }
   println(fibonaci(20))
 
-  def testPrime(n: Long, int: Int) : Boolean = {
-    if (n % 2 == 0) false
-    else
-      if (n >= int)
-        testPrime(n, int + 1)
-      else false
+  def testPrime(n: Int) : Boolean = {
+    def isPrimeUtil(t: Int) : Boolean = {
+      if (t <= 1) true
+      else n % t != 0 && isPrimeUtil(t-1)
+    }
+    isPrimeUtil(n / 2)
   }
 
-  println(if (testPrime(5,2))  "YES" else "NO")
+  println(if (testPrime(5))  "YES" else "NO")
 
 }

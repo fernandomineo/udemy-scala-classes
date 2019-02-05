@@ -47,6 +47,7 @@ object functions extends App {
     isPrimeUtil(n / 2)
   }
 
+
   println(if (testPrime(5))  "YES" else "NO")
 
 }

@@ -6,26 +6,13 @@ object OOBasics extends App{
   println(person.x)
   person.greet("Fernando")
   person.greet()
+  val writer = new Writer("Fernando", "Yamanaka", 1984)
+  val novel = new Novel("History of Scala", 2000, writer)
 
-}
-// constructor
-// class parameter are NOT FIELDS (add val in front of variable to be "accessible")
-class Person(name: String, val age: Int) {
-  // body
-  val x = 2
-
-  println(1 + 3)
-
-  // method
-  def greet(name: String) : Unit = println(s"${this.name} says: Hi, $name")
-
-  // overloading
-  def greet(): Unit = println(s"Hi, I am $name")
-
-  // multiple constructors
-  def this(name: String) = this(name, 0)
-  def this() = this("Mineo")
-
+  novel.getAuthorAge()
+  novel.isWritenBy()
+  val newNovel = novel.copy(2018)
+  newNovel.getYrRelease()
 
 }
 
@@ -47,6 +34,33 @@ class Person(name: String, val age: Int) {
     - method to increment/decrement => new Counter
     - overload inc/dec to receive a amount
  */
+
+class Writer(name: String, surname: String, val year: Int) {
+  def getFullName() = println(s"$name $surname")
+}
+class Novel(name: String, yrRelease: Int, author: Writer){
+  def getAuthorAge() = println(2019 - author.year)
+  def isWritenBy() = author.getFullName()
+  def copy(year: Int) = new Novel(name,year,author)
+  def getYrRelease() = println(yrRelease)
+}
+// constructor
+// class parameter are NOT FIELDS (add val in front of variable to be "accessible")
+class Person(name: String, val age: Int) {
+  // body
+  val x = 2
+  println(1 + 3)
+
+  // method
+  def greet(name: String) : Unit = println(s"${this.name} says: Hi, $name")
+
+  // overloading
+  def greet(): Unit = println(s"Hi, I am $name")
+
+  // multiple constructors
+  def this(name: String) = this(name, 0)
+  def this() = this("Mineo")
+}
 
 
 

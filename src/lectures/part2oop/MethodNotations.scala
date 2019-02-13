@@ -25,6 +25,7 @@ object MethodNotations extends App {
   println(mary + tom)
   println(mary.+(tom))
 
+
   // Same as:
   println(1 + 2)
   println(1.+(2))

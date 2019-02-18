@@ -1,6 +1,8 @@
 package lectures.part2oop
 
-object Inheritance extends App{
+import exercises.MyList
+
+object Inheritance extends App {
 
   // single class inheritance
   sealed class Animal {
